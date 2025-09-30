@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+
+     {% block content%}
+
+    <!-- Main Content -->
+    <div class="flex-grow-1 p-4">
+      <h2>Attendance Records</h2>
+      <p class="text-muted">Check student attendance details below.</p>
+
+      <!-- 🔍 Filter Form -->
+      <form method="get" class="row g-3 mb-4">
+        {% csrf_token %}
+        <div class="col-md-4">
+          <input type="text" name="roll_num"   class="form-control" placeholder="Enter Roll No" value="{{ request.GET.rollno }}">
+        </div>
+        <div class="col-md-4">
+          <input type="date" name="date" class="form-control"  value="{{ request.GET.date }}">
+        </div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-primary w-100">Filter</button>
+        </div>
+      </form>
+
+      <!-- Attendance Table -->
+      <div class="card shadow-sm p-4 mt-3">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+              <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for record in records %}
+
+              <tr>
+                <td>{{ record.student.roll_num }}</td>
+                <td>{{ record.student.name }}</td>
+                <td>{{ record.student.department }}</td>
+                <td>{{ record.date }}</td>
+                <td class="{% if record.status == 'Present' %}text-success{% else %}text-danger{% endif %} fw-bold">
+                  {{ record.status }}
+                </td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="5" class="text-center text-muted">No attendance records found.</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+ {% endblock %}

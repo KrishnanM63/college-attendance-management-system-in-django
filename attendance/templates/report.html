@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+  <h2 class="mt-4">Attendance Reports</h2>
+
+
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Roll No</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for record in records %}
+            <tr>
+                <tr>
+                <td>{{ record.student.roll_num }}</td>
+                <td>{{ record.student.name }}</td>
+                <td>{{ record.student.department }}</td>
+                <td>{{ record.date }}</td>
+                <td class="{% if record.status == 'Present' %}text-success{% else %}text-danger{% endif %} fw-bold">
+                  {{ record.status }}
+                </td>
+              </tr>
+            {% endfor %}
+            {% if records|length == 0 %}
+            <tr>
+              <td colspan="5" class="text-center">No records found.</td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

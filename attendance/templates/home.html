@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1; /* pushes footer to bottom */
+    }
+    .carousel-img {
+      height: 200px;       /* reduced height */
+      object-fit: cover;   /* keeps aspect ratio */
+      border-radius: 8px;  /* optional rounded corners */
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Attendance System</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main class="container text-center mt-5">
+    <h1 class="fw-bold">Welcome to Attendance Management System</h1>
+    <p class="text-muted">Manage student attendance easily and efficiently.</p>
+    
+    <div class="mt-4">
+      <a href="{% url "login_page"%}" class="btn btn-primary btn-lg me-2">Login</a>
+      <a href="{% url "registerpage" %}" class="btn btn-outline-primary btn-lg">Register</a>
+    </div>
+
+    <!-- Carousel -->
+    <div class="mt-5 mx-auto" style="max-width: 800px;">
+      <div id="attendanceCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://png.pngtree.com/thumb_back/fh260/background/20230705/pngtree-3d-illustration-tablet-toting-college-student-takes-flight-image_3747289.jpg" class="d-block w-100 carousel-img h-25" alt="College Students 1">
+          </div>
+          <div class="carousel-item">
+            <img src="https://cdn.wallpapersafari.com/66/38/imC0ga.jpg" class="d-block w-100 carousel-img h-25" alt="College Students 1">
+          </div>
+          <div class="carousel-item">
+            <img src="https://media.istockphoto.com/id/1462128810/video/technical-college-student-conversing-with-teacher.jpg?b=1&s=640x640&k=20&c=7OQyVlV-6nY86hokKk3hOoFIAg7JU4GTvvKiuxdJrFs=" alt="College Students 3"class="d-block w-100 carousel-img h-25">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#attendanceCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#attendanceCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center p-3 mt-auto">
+    <p class="mb-0">&copy; 2025 Attendance Management System | All Rights Reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

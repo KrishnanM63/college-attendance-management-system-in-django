@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+ {% block content %}
+    <!-- Main Content -->
+    <div class="flex-grow-1 p-4">
+      <h2>Welcome, Admin 👋</h2>
+      <p class="text-muted">Manage students and attendance from here.</p>
+
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <h5>Total Students</h5>
+            <p class="fs-3 fw-bold text-primary">120</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <h5>Today’s Attendance</h5>
+            <p class="fs-3 fw-bold text-success">95%</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm p-3">
+            <h5>Reports</h5>
+            <p class="fs-3 fw-bold text-warning">View</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+  {% endblock %}
